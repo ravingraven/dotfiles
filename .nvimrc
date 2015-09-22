@@ -57,6 +57,7 @@ call plug#end()
 
 let g:rehash256 = 1
 
+" Clear the t_ut terminal option
 set t_ut=
 
 " Ctrlp mappings and modes
