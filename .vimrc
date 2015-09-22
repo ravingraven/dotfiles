@@ -37,7 +37,22 @@ set t_Co=256
 colorscheme molokai
 "colorscheme itg_flat
 
-execute pathogen#infect()
+"execute pathogen#infect()
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'nixprime/cpsm'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'bling/vim-airline'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
+Plug 'tpope/vim-sensible'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+call plug#end()
 
 let g:rehash256 = 1
 
@@ -48,5 +63,5 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'rc'
 let g:ctrlp_root_markers = ['.ctrlp']
 
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_complete_in_comments = 1
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"

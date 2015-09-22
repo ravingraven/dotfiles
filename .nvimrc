@@ -37,7 +37,20 @@ set t_Co=256
 colorscheme molokai
 "colorscheme itg_flat
 
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+
+Plug 'nixprime/cpsm'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'bling/vim-airline'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
+Plug 'tpope/vim-sensible'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+call plug#end()
 
 let g:rehash256 = 1
 
