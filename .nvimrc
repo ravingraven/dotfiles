@@ -65,14 +65,6 @@ let g:rehash256 = 1
 " Clear the t_ut terminal option
 set t_ut=
 
-" Ctrlp mappings and modes
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'rc'
-let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_max_files = 0
-let g:ctrlp_max_depth = 40
-
 " YCM settings
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
