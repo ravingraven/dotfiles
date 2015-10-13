@@ -19,6 +19,8 @@ nmap <CR> :a<CR><CR>.<CR>
 " F8 Toggles Tagbar
 nmap <F8> :TagbarToggle<CR>
 
+inoremap jj <Esc>
+
 " Show linenumbers
 set number
 
@@ -41,9 +43,7 @@ colorscheme molokai
 
 " Use plug plugin to load other plugins
 call plug#begin('~/.vim/plugged')
-
 Plug 'nixprime/cpsm'
-Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'bling/vim-airline'
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -52,7 +52,12 @@ Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 Plug 'tpope/vim-sensible'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'juneedahamed/svnj.vim'
+Plug 'SirVer/ultisnips'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:rehash256 = 1
@@ -65,6 +70,17 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'rc'
 let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 40
 
 " YCM settings
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
