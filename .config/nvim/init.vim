@@ -29,6 +29,9 @@ set number
 ":W is :w
 :command W w
 
+" Set leader to space
+let mapleader = " "
+
 " Settings for terminal mode
 
 tnoremap <Esc> <C-\><C-n>
@@ -41,12 +44,19 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+" Replace under cursor
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+
 
 " Ident is two spaces
 set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" Autoremove spaces on write
+autocmd BufWritePre * %s/\s\+$//e
 
 " No smart indent for python
 au! FileType python setl nosmartindent
@@ -57,7 +67,6 @@ set cursorline
 " Set terminal colour mode
 set t_Co=256
 
-colorscheme molokai
 
 " Use plug plugin to load other plugins
 call plug#begin('~/.vim/plugged')
@@ -69,13 +78,22 @@ Plug 'tpope/vim-sensible'
 "Plug 'scrooloose/syntastic'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'tomasr/molokai'
+Plug 'crusoexia/vim-monokai'
 Plug 'reedes/vim-pencil'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
-Plug 'ambv/black'
 Plug 'w0rp/ale'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'joeytwiddle/sexy_scroller.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
+
+colorscheme monokai
 
 nmap <C-p> :FZF<CR>
 
@@ -83,6 +101,9 @@ let g:rehash256 = 1
 
 " Clear the t_ut terminal option
 set t_ut=
+
+" Use deoplete
+let g:deoplete#enable_at_startup = 1
 
 " YCM settings
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
@@ -96,4 +117,5 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-let g:notes_directories = ['~/Dropbox/THM ICE/Notes']
+"let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore build --ignore .repo --ignore .git -g ""'
+
